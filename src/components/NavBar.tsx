@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   return (
@@ -9,6 +10,9 @@ export default function NavBar() {
           {/* <Link href="/about">About</Link>
           <Link href="/social">Social Media</Link> */}
         </nav>
+        <div>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
