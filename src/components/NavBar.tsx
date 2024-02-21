@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import AIChatButton from "./AIChatButton";
 
 export default function NavBar() {
   return (
@@ -10,7 +11,8 @@ export default function NavBar() {
           {/* <Link href="/about">About</Link>
           <Link href="/social">Social Media</Link> */}
         </nav>
-        <div>
+        <div className="flex gap-4 items-center">
+          <AIChatButton />
           <ThemeToggle />
         </div>
       </div>
