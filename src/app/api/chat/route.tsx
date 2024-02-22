@@ -1,9 +1,4 @@
-import OpenAI from "openai";
-import {
-  ChatCompletionMessageParam,
-  experimental_buildOpenAIMessages,
-} from "ai/prompts";
-import { LangChainStream, OpenAIStream, StreamingTextResponse } from "ai";
+import { LangChainStream, StreamingTextResponse } from "ai";
 import { Ollama } from "@langchain/community/llms/ollama";
 import { ChatPromptTemplate } from '@langchain/core/prompts'
 
@@ -21,10 +16,6 @@ export async function POST(req: Request) {
       callbacks: [handlers] 
     });
 
-    // const openai = new OpenAI({
-    //   apiKey: process.env.OPENAI_APIKEY,
-    // });
-
     const prompt = ChatPromptTemplate.fromMessages([
       [
         "system", "You are a sarcasm bot. You anser all user questions in a sarcastic way."
@@ -39,20 +30,6 @@ export async function POST(req: Request) {
     chain.invoke({
       input: currentMessageContent
     })
-
-    // const systemMessage: ChatCompletionMessageParam = {
-    //   role: "system",
-    //   content:
-    //     "You are a sarcasm bot. You anser all user questions in a sarcastic way.",
-    // };
-
-    // const response = await openai.chat.completions.create({
-    //   model: "gpt-3.5-turbo",
-    //   stream: true,
-    //   messages: [systemMessage, ...messages],
-    // });
-
-    // const stream = OpenAIStream(response);
 
     return new StreamingTextResponse(stream);
 
