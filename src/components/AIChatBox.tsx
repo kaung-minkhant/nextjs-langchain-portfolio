@@ -19,33 +19,34 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
     error,
     setMessages,
   } = useChat({
-    initialMessages: [
-      {
-        id: "1",
-        role: "assistant",
-        content:
-          "hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,",
-      },
-      { id: "2", role: "user", content: "hi i am the user" },
-      {
-        id: "3",
-        role: "user",
-        content: `
-- item 1
-- item 2
-- item 3
-hi i am the user
-hi i am the user
-[hello](www.hello.com)
-- item 1
-- item 2
-- item 3
-      `,
-      },
-    ],
+//     initialMessages: [
+//       {
+//         id: "1",
+//         role: "assistant",
+//         content:
+//           "hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,hi i am chat bot,",
+//       },
+//       { id: "2", role: "user", content: "hi i am the user" },
+//       {
+//         id: "3",
+//         role: "user",
+//         content: `
+// - item 1
+// - item 2
+// - item 3
+// hi i am the user
+// hi i am the user
+// [hello](www.hello.com)
+// - item 1
+// - item 2
+// - item 3
+//       `,
+//       },
+//     ],
   });
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  console.log({messages})
 
   useEffect(() => {
     if (scrollRef.current) {
