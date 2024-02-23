@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <section className="space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8">
+    <section className="space-y-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat px-1 py-8 h-full flex flex-col justify-center">
       <section className="grid grid-cols-1 items-center gap-8 sm:gap-16 sm:grid-cols-2">
         <div className="space-y-3">
           <H1 className="text-center sm:text-start">
-            Hi, I&apos;m Kaung Min Khant 👋
+            Hi, I&apos;m Kaung Min Khant 
           </H1>
           <p className="text-center sm:text-start">
             I am a full stack developer from Myanmar, learning new technologies,

@@ -1,0 +1,6 @@
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: chroma_vector_store
+    ports:
+      - 8500:8000

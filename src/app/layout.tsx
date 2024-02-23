@@ -26,10 +26,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <div className="flex h-svh flex-col">
             <NavBar />
-            {/* <div className="flex flex-col"> */}
             <main className="mx-auto max-w-3xl flex-grow px-3">{children}</main>
             <Footer />
-            {/* </div> */}
           </div>
         </ThemeProvider>
       </body>
