@@ -1,6 +1,6 @@
 import { LangChainStream, StreamingTextResponse } from "ai";
 import { Ollama } from "@langchain/community/llms/ollama";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { ChatPromptTemplate, PromptTemplate } from "@langchain/core/prompts";
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents'
 import { createRetrievalChain } from 'langchain/chains/retrieval'
 import { getVectoreStore } from "@/lib/chromadb";
@@ -34,7 +34,11 @@ export async function POST(req: Request) {
 
     const combinedDocsChain = await createStuffDocumentsChain({
       llm: ollama,
-      prompt
+      prompt,
+      documentPrompt: PromptTemplate.fromTemplate(
+        "Page URL:{url}\n\nPage content: {page_content}"
+      ),
+      documentSeparator: "\n--------------\n"
     })
 
     const retrievel = ( await getVectoreStore() ).asRetriever()
