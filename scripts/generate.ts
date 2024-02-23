@@ -52,53 +52,6 @@ async function generateVectors() {
 
   await vectorStore.addDocuments(splittedText)
 
-  // const retriever = vectorStore.asRetriever();
-  // const relDocs = await retriever.getRelevantDocuments("name of person");
-
-  // console.log({ relDocs });
 }
 
 generateVectors();
-
-async function test() {
-  const chroma = await Chroma.fromTexts(
-    [
-      `Tortoise: Labyrinth? Labyrinth? Could it Are we in the notorious Little
-          Harmonic Labyrinth of the dreaded Majotaur?`,
-      "Achilles: Yiikes! What is that?",
-      `Tortoise: They say-although I person never believed it myself-that an I
-          Majotaur has created a tiny labyrinth sits in a pit in the middle of
-          it, waiting innocent victims to get lost in its fears complexity.
-          Then, when they wander and dazed into the center, he laughs and
-          laughs at them-so hard, that he laughs them to death!`,
-      "Achilles: Oh, no!",
-      "Tortoise: But it's only a myth. Courage, Achilles.",
-    ],
-    [{ id: 2 }, { id: 1 }, { id: 3 }],
-    new OllamaEmbeddings({
-      model: "llama2",
-    }),
-    {
-      collectionName: "test-vectors",
-      url: "http://localhost:8500",
-    },
-  );
-
-  const client = new ChromaClient({
-    path: "http://localhost:8500",
-  });
-
-  await client.deleteCollection({
-    name: "test-vectors",
-  });
-
-  const retriever = chroma.asRetriever()
-
-  const docs = await retriever.getRelevantDocuments("scared")
-
-  // const response = await chroma.similaritySearch("scared", 2);
-  
-  console.log({docs})
-}
-
-// test();

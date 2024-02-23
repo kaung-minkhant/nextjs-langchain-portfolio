@@ -44,9 +44,6 @@ export async function POST(req: Request) {
       combineDocsChain: combinedDocsChain,
     })
 
-    // const docs = await retrievel.getRelevantDocuments(currentMessageContent)
-    // console.log({docs, currentMessageContent})
-
     retrievelChain.invoke({
       input: currentMessageContent,
     });
